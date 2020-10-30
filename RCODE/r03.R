@@ -1,0 +1,5 @@
+beveridge = read.table("beveridge.txt", header=TRUE)
+beveridge.ts = ts(beveridge[,2], start=1500)
+plot( beveridge.ts, ylab="price", main="Beveridge Wheat Price Data")
+beveridge.MA = filter(beveridge.ts, rep(1/31, 31), sides = 2)
+lines(beveridge.MA, col="red")
